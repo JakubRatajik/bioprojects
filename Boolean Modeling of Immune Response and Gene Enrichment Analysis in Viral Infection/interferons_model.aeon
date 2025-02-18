@@ -1,0 +1,338 @@
+#position:IFNAR_complex:27.631988229203564,437.1853477268966
+$IFNAR_complex:true
+#position:IFNA1_IFNAR_complex:-12.008147104286095,524.8046858630806
+$IFNA1_IFNAR_complex:(IFNAR_complex & IFNA1_extracellular_space)
+IFNAR_complex -> IFNA1_IFNAR_complex
+IFNA1_extracellular_space ->? IFNA1_IFNAR_complex
+#position:IFNA1_extracellular_space:-390.04633667413225,307.17501270295816
+$IFNA1_extracellular_space:IFNA1_out
+IFNA1_out -> IFNA1_extracellular_space
+#position:IFNA1_out:-420.39922127044264,493.85658895216966
+$IFNA1_out:IFNA1_rna
+IFNA1_rna -> IFNA1_out
+#position:IFNA1_rna:18.095097574636846,680.2914568119642
+$IFNA1_rna:((AP_1_complex_nucleus & NFKB1_nucleus) & p50_p65_complex_nucleus)
+AP_1_complex_nucleus -> IFNA1_rna
+NFKB1_nucleus -> IFNA1_rna
+p50_p65_complex_nucleus -> IFNA1_rna
+#position:AP_1_complex_cell:751.5416430854783,535.5567771852506
+$AP_1_complex_cell:(((E | MAPK8_14_complex) & JUN) & FOS)
+JUN -> AP_1_complex_cell
+FOS -> AP_1_complex_cell
+E -> AP_1_complex_cell
+MAPK8_14_complex -> AP_1_complex_cell
+#position:AP_1_complex_nucleus:421.4774885657605,729.6704146168381
+$AP_1_complex_nucleus:(AP_1_complex_cell & !Azithromycin_drug)
+AP_1_complex_cell -> AP_1_complex_nucleus
+Azithromycin_drug -| AP_1_complex_nucleus
+#position:Azithromycin_drug:-485.68794772830154,1038.7205191942496
+#position:NFKB1_nucleus:612.6328329953758,791.0782435786383
+$NFKB1_nucleus:(NFKB1_cell & !Azithromycin_drug)
+NFKB1_cell -> NFKB1_nucleus
+Azithromycin_drug -| NFKB1_nucleus
+#position:p50_p65_complex_nucleus:303.04963574754447,578.4769835330437
+$p50_p65_complex_nucleus:(p50_p65_complex_cell & !Azithromycin_drug)
+p50_p65_complex_cell -> p50_p65_complex_nucleus
+Azithromycin_drug -| p50_p65_complex_nucleus
+#position:NFKB1_cell:848.5626643887358,685.6627415658187
+$NFKB1_cell:NFKB_NFKBIA_complex
+NFKB_NFKBIA_complex -> NFKB1_cell
+#position:p50_p65_complex_cell:674.1171800228946,956.4659188545332
+$p50_p65_complex_cell:((((IKK_complex | TBK1) & RELA) & NFKB1_cell) & !N)
+RELA -> p50_p65_complex_cell
+NFKB1_cell -> p50_p65_complex_cell
+IKK_complex -> p50_p65_complex_cell
+TBK1 -> p50_p65_complex_cell
+N -| p50_p65_complex_cell
+#position:JUN:602.0942435230621,489.97046240627475
+$JUN:true
+#position:FOS:899.7624670309153,448.75440896023804
+$FOS:true
+#position:E:1280.0796008052205,1216.1987060379658
+$E:true
+#position:MAPK8_14_complex:1029.1060239807316,701.6267573094393
+$MAPK8_14_complex:(((TBK1 | MAP3K7) & MAPK14) & MAPK8)
+MAPK14 -> MAPK8_14_complex
+MAPK8 -> MAPK8_14_complex
+TBK1 -> MAPK8_14_complex
+MAP3K7 -> MAPK8_14_complex
+#position:NFKB_NFKBIA_complex:849.1996833001872,797.1119148102761
+$NFKB_NFKBIA_complex:((((((((Nsp1 | S) | E) | Orf7a) | Orf3a) | N) & NFKB1_cell) & NFKBIA) & !IKK_complex)
+NFKB1_cell -> NFKB_NFKBIA_complex
+NFKBIA -> NFKB_NFKBIA_complex
+Nsp1 -> NFKB_NFKBIA_complex
+S -> NFKB_NFKBIA_complex
+E -> NFKB_NFKBIA_complex
+Orf7a -> NFKB_NFKBIA_complex
+IKK_complex -| NFKB_NFKBIA_complex
+Orf3a -> NFKB_NFKBIA_complex
+N -> NFKB_NFKBIA_complex
+#position:RELA:735.7251317397058,706.7104494281074
+$RELA:true
+#position:IKK_complex:838.1621061743537,1038.8457067514348
+$IKK_complex:((TRAF6_ubiquitinated | RIPK1) & !M)
+TRAF6_ubiquitinated -> IKK_complex
+RIPK1 -> IKK_complex
+M -| IKK_complex
+#position:TBK1:941.7798766284463,1132.175643959772
+$TBK1:((IKBKE | STING1_ubiquitinated) | MAVS)
+IKBKE -> TBK1
+STING1_ubiquitinated -> TBK1
+MAVS -> TBK1
+#position:N:1408.8272676962094,1123.2259503382966
+$N:true
+#position:MAPK14:1192.8879342859525,647.3730822314917
+$MAPK14:true
+#position:MAPK8:1204.1690619459887,701.7657256403744
+$MAPK8:true
+#position:MAP3K7:1119.818712260635,789.1473089228867
+$MAP3K7:TRAF6_ubiquitinated
+TRAF6_ubiquitinated -> MAP3K7
+#position:NFKBIA:926.0899510555075,612.2936436000829
+$NFKBIA:NFKB_NFKBIA_complex
+NFKB_NFKBIA_complex -> NFKBIA
+#position:Nsp1:938.7845445720523,539.511228728135
+$Nsp1:true
+#position:S:1328.13783587253,1133.629277267266
+$S:true
+#position:Orf7a:1414.4020094817863,1325.1383141358704
+$Orf7a:true
+#position:Orf3a:1490.0486419898207,1280.8216070925168
+$Orf3a:true
+#position:TRAF6_ubiquitinated:1056.1464083244227,992.9128960976799
+$TRAF6_ubiquitinated:((MYD88_TCAM1_complex & !Nsp3) & !ITCH)
+MYD88_TCAM1_complex -> TRAF6_ubiquitinated
+Nsp3 -| TRAF6_ubiquitinated
+ITCH -| TRAF6_ubiquitinated
+#position:RIPK1:965.6407082417968,1059.116913774336
+$RIPK1:((MYD88_TCAM1_complex | MAVS) | TCAM1)
+MYD88_TCAM1_complex -> RIPK1
+MAVS -> RIPK1
+TCAM1 -> RIPK1
+#position:M:1339.1050341308041,1191.7354429735115
+$M:true
+#position:IKBKE:1087.2263339021638,1233.4155354384666
+$IKBKE:((TBK1 | MAVS) & !Nsp3)
+Nsp3 -| IKBKE
+TBK1 -> IKBKE
+MAVS -> IKBKE
+#position:STING1_ubiquitinated:947.2783770836418,1381.1882472315133
+$STING1_ubiquitinated:(MAVS & !pp1ab)
+MAVS -> STING1_ubiquitinated
+pp1ab -| STING1_ubiquitinated
+#position:MAVS:996.6810837655876,1245.8728465416848
+$MAVS:((RIG1_MDA5_complex & !Orf9b) & !ITCH)
+RIG1_MDA5_complex -> MAVS
+Orf9b -| MAVS
+ITCH -| MAVS
+#position:IFNB1_IFNAR_complex:71.27751021336485,356.1666568894734
+$IFNB1_IFNAR_complex:(IFNAR_complex & IFNB1_extracellular_space)
+IFNAR_complex -> IFNB1_IFNAR_complex
+IFNB1_extracellular_space ->? IFNB1_IFNAR_complex
+#position:IFNB1_extracellular_space:-266.1710168736141,143.7347692953493
+$IFNB1_extracellular_space:IFNB1_out
+IFNB1_out -> IFNB1_extracellular_space
+#position:IFNB1_out:-87.3396556463074,15.417592454982465
+$IFNB1_out:IFNB1_rna
+IFNB1_rna -> IFNB1_out
+#position:IFNB1_rna:363.1694385892229,432.9962708907721
+$IFNB1_rna:((AP_1_complex_nucleus & NFKB1_nucleus) & p50_p65_complex_nucleus)
+AP_1_complex_nucleus -> IFNB1_rna
+NFKB1_nucleus -> IFNB1_rna
+p50_p65_complex_nucleus -> IFNB1_rna
+#position:STAT1:506.47790176079945,1120.455269644446
+$STAT1:true
+#position:STAT1_2_IRF9_complex:458.61452238607194,1015.2801657562736
+$STAT1_2_IRF9_complex:(((((TREML4 | JAK1_TYK2_complex) & STAT1) & IRF9) & STAT2) & !Orf6)
+STAT1 -> STAT1_2_IRF9_complex
+IRF9 -> STAT1_2_IRF9_complex
+STAT2 -> STAT1_2_IRF9_complex
+Orf6 -| STAT1_2_IRF9_complex
+TREML4 -> STAT1_2_IRF9_complex
+JAK1_TYK2_complex -> STAT1_2_IRF9_complex
+#position:IRF9:370.1350559976257,925.5585530257207
+$IRF9:true
+#position:STAT2:436.36860512536214,885.0099779687038
+$STAT2:true
+#position:Orf6:1255.2331614687048,1050.8074700232062
+$Orf6:true
+#position:TREML4:686.3955492738661,767.3533901646645
+#position:JAK1_TYK2_complex:515.4616157341235,639.7181158615462
+$JAK1_TYK2_complex:(((IFNA1_IFNAR_complex | IFNB1_IFNAR_complex) & JAK1) & TYK2)
+JAK1 -> JAK1_TYK2_complex
+TYK2 -> JAK1_TYK2_complex
+IFNA1_IFNAR_complex -> JAK1_TYK2_complex
+IFNB1_IFNAR_complex -> JAK1_TYK2_complex
+#position:JAK1:365.0114315600059,820.8426739498938
+$JAK1:true
+#position:TYK2:193.63633309508214,899.3522296231159
+$TYK2:true
+#position:ISRE_complex:229.16689359094147,1027.0547217504352
+$ISRE_complex:(STAT1_2_IRF9_complex & !Azithromycin_drug)
+STAT1_2_IRF9_complex -> ISRE_complex
+Azithromycin_drug -| ISRE_complex
+#position:Nsp3:1375.0001841681035,1272.9688176324398
+$Nsp3:!GRL0617_drug
+GRL0617_drug -| Nsp3
+#position:pp1ab:1434.5857231913192,1195.5143853945126
+$pp1ab:true
+#position:RIG1_MDA5_complex:842.4926937265565,1861.7500744699098
+$RIG1_MDA5_complex:(((((DDX58_ubiquitinated & IFIH1) & Viral_replication_phenotype) & !N) & !Nsp15) & !M)
+DDX58_ubiquitinated -> RIG1_MDA5_complex
+IFIH1 -> RIG1_MDA5_complex
+N -| RIG1_MDA5_complex
+Nsp15 -| RIG1_MDA5_complex
+M -| RIG1_MDA5_complex
+Viral_replication_phenotype -> RIG1_MDA5_complex
+#position:Orf9b:1262.7324239603424,1284.180934843106
+$Orf9b:true
+#position:ITCH:1145.323537117702,1131.562019028394
+$ITCH:Orf9b
+Orf9b -> ITCH
+#position:MYD88_TCAM1_complex:940.4615550519884,770.8330072965219
+$MYD88_TCAM1_complex:(((TREML4 | TLR7) & MYD88) & TCAM1)
+MYD88 -> MYD88_TCAM1_complex
+TCAM1 -> MYD88_TCAM1_complex
+TREML4 -> MYD88_TCAM1_complex
+TLR7 -> MYD88_TCAM1_complex
+#position:GRL0617_drug:-479.2030959910131,1127.6570532094959
+#position:DDX58_ubiquitinated:779.6484082632226,1426.7907890349093
+$DDX58_ubiquitinated:((TRIM25 | RNF135) & !N)
+N -| DDX58_ubiquitinated
+TRIM25 -> DDX58_ubiquitinated
+RNF135 -> DDX58_ubiquitinated
+#position:IFIH1:779.3153323091783,1735.0533031438417
+$IFIH1:!Nsp15
+Nsp15 -| IFIH1
+#position:Nsp15:1334.9011703129356,1351.7882533723082
+$Nsp15:true
+#position:Viral_replication_phenotype:1452.944515413137,2079.2968469620655
+#position:MYD88:1085.600076601279,632.2170347011913
+$MYD88:true
+#position:TCAM1:875.4421613665345,931.2162581874796
+$TCAM1:true
+#position:TLR7:1017.3356045193107,571.4188210987548
+$TLR7:PAMP_signalling_phenotype
+PAMP_signalling_phenotype -> TLR7
+#position:TRIM25:1033.747202351466,1725.7114226315093
+$TRIM25:true
+#position:RNF135:944.7158029438424,1803.574123066478
+$RNF135:true
+#position:PAMP_signalling_phenotype:1159.547774024161,500.9815188369712
+#position:OAS1_rna:432.80546651599207,1372.9139209061268
+$OAS1_rna:(ISRE_complex & IRF3_nucleus)
+ISRE_complex -> OAS1_rna
+IRF3_nucleus -> OAS1_rna
+#position:IRF3_nucleus:653.272015126759,1315.4833381102922
+$IRF3_nucleus:IRF3_cell
+IRF3_cell -> IRF3_nucleus
+#position:IRF3_cell:644.1897850615508,1112.541108323438
+$IRF3_cell:((((((((TBK1_IKBKE_complex | TRAF3_TBK1_IKBKE_complex_cell_active) | TBK1) | MAVS) & !Nsp3) & !N) & !Orf8_complex) & !Orf6) & !pp1ab)
+TBK1_IKBKE_complex -> IRF3_cell
+Nsp3 -| IRF3_cell
+N -| IRF3_cell
+TRAF3_TBK1_IKBKE_complex_cell_active -> IRF3_cell
+Orf8_complex -| IRF3_cell
+TBK1 -> IRF3_cell
+Orf6 -| IRF3_cell
+pp1ab -| IRF3_cell
+MAVS -> IRF3_cell
+#position:TBK1_IKBKE_complex:846.3961575022732,1255.2546749341502
+$TBK1_IKBKE_complex:((((((Nsp13 | TRAF3) | TRAF3_TANK_TBK1_IKKepsilon_complex) | MAVS) & TBK1) & IKBKE) & !Nsp3)
+TBK1 -> TBK1_IKBKE_complex
+IKBKE -> TBK1_IKBKE_complex
+Nsp13 -> TBK1_IKBKE_complex
+TRAF3 -> TBK1_IKBKE_complex
+Nsp3 -| TBK1_IKBKE_complex
+TRAF3_TANK_TBK1_IKKepsilon_complex -> TBK1_IKBKE_complex
+MAVS -> TBK1_IKBKE_complex
+#position:TRAF3_TBK1_IKBKE_complex_cell_active:894.3794187802979,1323.0952239618346
+$TRAF3_TBK1_IKBKE_complex_cell_active:((TRAF3_TBK1_IKBKE_complex_cell & STING1_ubiquitinated) & !pp1ab)
+TRAF3_TBK1_IKBKE_complex_cell -> TRAF3_TBK1_IKBKE_complex_cell_active
+STING1_ubiquitinated -> TRAF3_TBK1_IKBKE_complex_cell_active
+pp1ab -| TRAF3_TBK1_IKBKE_complex_cell_active
+#position:Orf8_complex:1265.5442659103312,952.3495999002564
+$Orf8_complex:true
+#position:Nsp13:1253.3536769911216,1352.1465330296448
+$Nsp13:true
+#position:TRAF3:684.2084310985394,1048.3691500202629
+$TRAF3:(MYD88_TCAM1_complex & !Nsp3)
+MYD88_TCAM1_complex -> TRAF3
+Nsp3 -| TRAF3
+#position:TRAF3_TANK_TBK1_IKKepsilon_complex:983.184928920343,871.1862573585141
+$TRAF3_TANK_TBK1_IKKepsilon_complex:((TRAF3_TBK1_IKBKE_complex_cell_active & TANK) & !M)
+TRAF3_TBK1_IKBKE_complex_cell_active -> TRAF3_TANK_TBK1_IKKepsilon_complex
+TANK -> TRAF3_TANK_TBK1_IKKepsilon_complex
+M -| TRAF3_TANK_TBK1_IKKepsilon_complex
+#position:TRAF3_TBK1_IKBKE_complex_cell:578.7346521036806,1231.8100183582392
+$TRAF3_TBK1_IKBKE_complex_cell:((TBK1_IKBKE_complex & TRAF3) & !pp1ab)
+TBK1_IKBKE_complex -> TRAF3_TBK1_IKBKE_complex_cell
+TRAF3 -> TRAF3_TBK1_IKBKE_complex_cell
+pp1ab -| TRAF3_TBK1_IKBKE_complex_cell
+#position:OAS1_cell:419.4224566546036,1651.1896719947522
+$OAS1_cell:OAS1_rna
+OAS1_rna -> OAS1_cell
+#position:OAS1_cell_active:552.7181849887884,1871.7111995120126
+$OAS1_cell_active:(OAS1_cell & !Nsp15)
+OAS1_cell -> OAS1_cell_active
+Nsp15 -| OAS1_cell_active
+#position:OAS1_EIF2AK_complex:598.9757412159447,1610.8295434797474
+$OAS1_EIF2AK_complex:(((OAS1_cell_active & OAS3_cell_active) & EIF2AK) & OAS2_cell_active)
+OAS1_cell_active -> OAS1_EIF2AK_complex
+OAS3_cell_active -> OAS1_EIF2AK_complex
+EIF2AK -> OAS1_EIF2AK_complex
+OAS2_cell_active -> OAS1_EIF2AK_complex
+#position:OAS3_cell_active:656.4492881737547,1895.6856231318038
+$OAS3_cell_active:(OAS3_cell & !Nsp15)
+OAS3_cell -> OAS3_cell_active
+Nsp15 -| OAS3_cell_active
+#position:EIF2AK:676.4014793379401,1512.476860204693
+$EIF2AK:(EIF2AK_rna | (EIF2AK & !Nsp15))
+EIF2AK_rna -> EIF2AK
+EIF2AK -> EIF2AK
+Nsp15 -| EIF2AK
+#position:OAS2_cell_active:509.87125290544463,1721.577227698585
+$OAS2_cell_active:(OAS2_cell & !Nsp15)
+OAS2_cell -> OAS2_cell_active
+Nsp15 -| OAS2_cell_active
+#position:OAS3_cell:690.0650776254056,1648.2841792533582
+$OAS3_cell:OAS3_rna
+OAS3_rna -> OAS3_cell
+#position:EIF2AK_rna:524.1995345778737,1413.2113513105405
+$EIF2AK_rna:(ISRE_complex & IRF3_nucleus)
+ISRE_complex -> EIF2AK_rna
+IRF3_nucleus -> EIF2AK_rna
+#position:OAS2_cell:434.1328066075407,1508.2047315090358
+$OAS2_cell:OAS2_rna
+OAS2_rna -> OAS2_cell
+#position:OAS3_rna:612.5334110454537,1399.3923668280904
+$OAS3_rna:(ISRE_complex & IRF3_nucleus)
+ISRE_complex -> OAS3_rna
+IRF3_nucleus -> OAS3_rna
+#position:OAS2_rna:523.2737176320293,1310.671787369908
+$OAS2_rna:(ISRE_complex & IRF3_nucleus)
+ISRE_complex -> OAS2_rna
+IRF3_nucleus -> OAS2_rna
+#position:TANK:1145.722358562176,927.8430725098498
+$TANK:true
+#position:NLRP3_inflammasome_complex:1344.066795793437,777.2392449536819
+$NLRP3_inflammasome_complex:(E | p50_p65_complex_nucleus)
+E -> NLRP3_inflammasome_complex
+p50_p65_complex_nucleus -> NLRP3_inflammasome_complex
+#position:Immune_Response_phenotype:1903.2345660771236,749.8862465853579
+$Immune_Response_phenotype:((((IRF3_nucleus | p50_p65_complex_nucleus) | IRF7_nucleus) | OAS1_EIF2AK_complex) & !Nsp3)
+IRF3_nucleus -> Immune_Response_phenotype
+p50_p65_complex_nucleus -> Immune_Response_phenotype
+IRF7_nucleus -> Immune_Response_phenotype
+OAS1_EIF2AK_complex -> Immune_Response_phenotype
+Nsp3 -| Immune_Response_phenotype
+#position:IRF7_nucleus:946.7980494620069,1606.4473774307094
+$IRF7_nucleus:IRF7_cell
+IRF7_cell -> IRF7_nucleus
+#position:IRF7_cell:1038.2917576784398,1551.0893498112373
+$IRF7_cell:TBK1_IKBKE_complex
+TBK1_IKBKE_complex -> IRF7_cell
+#position:Inflammation_phenotype:1926.697558561789,677.6438773707403
+$Inflammation_phenotype:(p50_p65_complex_nucleus | NLRP3_inflammasome_complex)
+p50_p65_complex_nucleus -> Inflammation_phenotype
+NLRP3_inflammasome_complex -> Inflammation_phenotype
